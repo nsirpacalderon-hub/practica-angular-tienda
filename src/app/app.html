@@ -1,0 +1,61 @@
+<main class="pagina">
+  <section class="tarjeta">
+    <div class="encabezado">
+      <span class="etiqueta">PRÁCTICA ANGULAR</span>
+      <h1>{{ nombreTienda }}</h1>
+      <p class="subtitulo">Presentación de producto de tienda</p>
+    </div>
+
+    <div class="datos">
+      <div class="dato">
+        <span>Encargada</span>
+        <strong>{{ encargado }}</strong>
+      </div>
+
+      <div class="dato">
+        <span>Sucursal</span>
+        <strong>N.º {{ numeroSucursal }}</strong>
+      </div>
+    </div>
+
+    @if (tiendaAbierta) {
+      <div class="estado abierta">
+        <span class="punto"></span>
+        Tienda abierta
+      </div>
+    } @else {
+      <div class="estado cerrada">
+        <span class="punto"></span>
+        Tienda cerrada
+      </div>
+    }
+
+    <section class="seccion">
+      <h2>Categorías de productos</h2>
+
+      <ul class="categorias">
+        @for (categoria of categorias; track categoria) {
+          <li>{{ categoria }}</li>
+        }
+      </ul>
+    </section>
+
+    <section class="producto">
+      <div>
+        <span class="mini-etiqueta">PRODUCTO</span>
+        <h2>{{ producto.nombre }}</h2>
+        <p class="precio">Bs. {{ producto.precio }}</p>
+      </div>
+
+      @if (producto.disponible) {
+        <div class="estado disponible">Producto disponible</div>
+      } @else {
+        <div class="estado agotado">Producto agotado</div>
+      }
+    </section>
+
+    <footer>
+      Práctica de presentación de un producto en Angular
+    </footer>
+  </section>
+</main>
